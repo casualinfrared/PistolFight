@@ -7,6 +7,9 @@ To install pygame: open a console window and type in: 'python3 -m pip install py
 
 # Controls
 W A S D = Move Player 1
+
 Left CTRL = Player 1 Shoot
+
 Arrow keys = Move Player 2
+
 Right CTRL = Player 2 Shoot
