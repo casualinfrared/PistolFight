@@ -1,5 +1,4 @@
-##PistolFight, multiplayer shooter game for HiDPI displays
-##1440p and above recommended.
+##PistolFight (For smaller screens), multiplayer shooter game
 ##Copyright (C) 2019  Nathaniel Crosby
 ##
 ##This program is free software: you can redistribute it and/or modify
@@ -27,8 +26,8 @@ os.environ['SDL_VIDEO_CENTERED'] = '1'
 
 #the following is trivial and self-explanitory, but I'll explain what it does anyways.
 #set window dimentions and FPS
-WINDOWWIDTH = 1000
-WINDOWHEIGHT = 1000
+WINDOWWIDTH = 500
+WINDOWHEIGHT = 500
 FPS = 60
 bullet1=False
 
@@ -86,7 +85,7 @@ pygame.display.set_caption('Pistol Fight')
 #code stating both player's rectangle and move rate
 playerRect = PLAYER.get_rect() #the player's rectangle
 playerRect2 = PLAYER.get_rect() #player rectangle for player 2
-PLAYERMOVERATE = 15
+PLAYERMOVERATE = 7.5
 
 def main(): #def for the whole game
     #Player Score Variables
@@ -126,9 +125,9 @@ def main(): #def for the whole game
         #Limits where player 1 can move
         if move_left and player.left > 0:
             player.move_ip(-1 * PLAYERMOVERATE, 0)
-        elif move_right and player.right < 400:
+        elif move_right and player.right < 200:
             player.move_ip(PLAYERMOVERATE, 0)
-        elif move_up and player.top > 100:
+        elif move_up and player.top > 50:
             player.move_ip(0, -1 * PLAYERMOVERATE)
         elif move_down and player.bottom < WINDOWHEIGHT:
             player.move_ip(0, PLAYERMOVERATE)
@@ -137,11 +136,11 @@ def main(): #def for the whole game
     def handle_player2_movement(player, move_left2, move_right2, move_up2, move_down2):
 
         #limits where player 2 can move
-        if move_left2 and player.left > 600:
+        if move_left2 and player.left > 300:
             player.move_ip(-1 * PLAYERMOVERATE, 0)
-        elif move_right2 and player.right < 1000:
+        elif move_right2 and player.right < 500:
             player.move_ip(PLAYERMOVERATE, 0)
-        elif move_up2 and player.top > 100:
+        elif move_up2 and player.top > 50:
             player.move_ip(0, -1 * PLAYERMOVERATE)
         elif move_down2 and player.bottom < WINDOWHEIGHT:
             player.move_ip(0, PLAYERMOVERATE)
@@ -153,8 +152,8 @@ def main(): #def for the whole game
     waitForPlayerToPressKey()
 
     #allow the players to move
-    playerRect.topleft = (80, 160)
-    playerRect2.topleft = (WINDOWWIDTH - 160, 160)
+    playerRect.topleft = (40, 80)
+    playerRect2.topleft = (WINDOWWIDTH - 80, 80)
 
     #keybinds for main game.
     run = True
@@ -183,7 +182,7 @@ def main(): #def for the whole game
                 elif event.key == K_LCTRL:
                     if P1BULLET==[]:
                         pygame.mixer.Sound.play(gunshot)
-                        P1BULLET=[playerRect.left+40, playerRect.top+54]
+                        P1BULLET=[playerRect.left+20, playerRect.top+27]
 
                 # Player 2
                 if event.key == K_LEFT:
@@ -197,7 +196,7 @@ def main(): #def for the whole game
                 elif event.key == K_RCTRL:
                     if P2BULLET==[]:
                         pygame.mixer.Sound.play(gunshot)
-                        P2BULLET=[playerRect2.left, playerRect2.top+54]
+                        P2BULLET=[playerRect2.left, playerRect2.top+27]
                     
             elif event.type == pygame.KEYUP:
 
@@ -231,88 +230,88 @@ def main(): #def for the whole game
 
         #Scoring System, Player 1
         if P1SCORE == 1:
-            windowSurface.blit(ONE, [124,18])
+            windowSurface.blit(ONE, [62,9])
         if P1SCORE == 2:
-            windowSurface.blit(TWO, [124,18])
+            windowSurface.blit(TWO, [62,9])
         if P1SCORE == 3:
-            windowSurface.blit(THREE, [124,18])
+            windowSurface.blit(THREE, [62,9])
         if P1SCORE == 4:
-            windowSurface.blit(FOUR, [124,18])
+            windowSurface.blit(FOUR, [62,9])
         if P1SCORE == 5:
-            windowSurface.blit(FIVE, [124,18])
+            windowSurface.blit(FIVE, [62,9])
         if P1SCORE == 6:
-            windowSurface.blit(SIX, [124,18])
+            windowSurface.blit(SIX, [62,9])
         if P1SCORE == 7:
-            windowSurface.blit(SEVEN, [124,18])
+            windowSurface.blit(SEVEN, [62,9])
         if P1SCORE == 8:
-            windowSurface.blit(EIGHT, [124,18])
+            windowSurface.blit(EIGHT, [62,9])
         if P1SCORE == 9:
-            windowSurface.blit(NINE, [124,18])
+            windowSurface.blit(NINE, [62,9])
         if P1SCORE == 10:
-            windowSurface.blit(ONE, [88,18])
+            windowSurface.blit(ONE, [44,9])
         if P1SCORE == 11:
-            windowSurface.blit(ONE, [88,18])
-            windowSurface.blit(ONE, [124,18])
+            windowSurface.blit(ONE, [44,9])
+            windowSurface.blit(ONE, [62,9])
         if P1SCORE == 12:
-            windowSurface.blit(ONE, [88,18])
-            windowSurface.blit(TWO, [124,18])
+            windowSurface.blit(ONE, [44,9])
+            windowSurface.blit(TWO, [62,9])
         if P1SCORE == 13:
-            windowSurface.blit(ONE, [88,18])
-            windowSurface.blit(THREE, [124,18])
+            windowSurface.blit(ONE, [44,9])
+            windowSurface.blit(THREE, [62,9])
         if P1SCORE == 14:
-            windowSurface.blit(ONE, [88,18])
-            windowSurface.blit(FOUR, [124,18])
+            windowSurface.blit(ONE, [44,9])
+            windowSurface.blit(FOUR, [62,9])
         if P1SCORE == 15:
-            windowSurface.blit(ONE, [88,18])
-            windowSurface.blit(FIVE, [124,18])
+            windowSurface.blit(ONE, [44,9])
+            windowSurface.blit(FIVE, [62,9])
 
         #Scoring System, Player 2
         if P2SCORE == 1:
-            windowSurface.blit(ONE, [882,18])
+            windowSurface.blit(ONE, [441,9])
         if P2SCORE == 2:
-            windowSurface.blit(TWO, [882,18])
+            windowSurface.blit(TWO, [441,9])
         if P2SCORE == 3:
-            windowSurface.blit(THREE, [882,18])
+            windowSurface.blit(THREE, [441,9])
         if P2SCORE == 4:
-            windowSurface.blit(FOUR, [882,18])
+            windowSurface.blit(FOUR, [441,9])
         if P2SCORE == 5:
-            windowSurface.blit(FIVE, [882,18])
+            windowSurface.blit(FIVE, [441,9])
         if P2SCORE == 6:
-            windowSurface.blit(SIX, [882,18])
+            windowSurface.blit(SIX, [441,9])
         if P2SCORE == 7:
-            windowSurface.blit(SEVEN, [882,18])
+            windowSurface.blit(SEVEN, [441,9])
         if P2SCORE == 8:
-            windowSurface.blit(EIGHT, [882,18])
+            windowSurface.blit(EIGHT, [441,9])
         if P2SCORE == 9:
-            windowSurface.blit(NINE, [882,18])
+            windowSurface.blit(NINE, [441,9])
         if P2SCORE == 10:
-            windowSurface.blit(ONE, [846,18])
+            windowSurface.blit(ONE, [423,9])
         if P2SCORE == 11:
-            windowSurface.blit(ONE, [846,18])
-            windowSurface.blit(ONE, [882,18])
+            windowSurface.blit(ONE, [423,9])
+            windowSurface.blit(ONE, [441,9])
         if P2SCORE == 12:
-            windowSurface.blit(ONE, [846,18])
-            windowSurface.blit(TWO, [882,18])
+            windowSurface.blit(ONE, [423,9])
+            windowSurface.blit(TWO, [441,9])
         if P2SCORE == 13:
-            windowSurface.blit(ONE, [846,18])
-            windowSurface.blit(THREE, [882,18])
+            windowSurface.blit(ONE, [423,9])
+            windowSurface.blit(THREE, [441,9])
         if P2SCORE == 14:
-            windowSurface.blit(ONE, [846,18])
-            windowSurface.blit(FOUR, [882,18])
+            windowSurface.blit(ONE, [423,9])
+            windowSurface.blit(FOUR, [441,9])
         if P2SCORE == 15:
-            windowSurface.blit(ONE, [846,18])
-            windowSurface.blit(FIVE, [882,18])
+            windowSurface.blit(ONE, [423,9])
+            windowSurface.blit(FIVE, [441,9])
         #I had a zero sprite, but I realised I never called it.
 
         #When a player wins, display a win screen, wait, then terminate.        
         if P1SCORE >= 15:
-           windowSurface.blit(P1WIN, [120, 400])
+           windowSurface.blit(P1WIN, [60, 200])
            pygame.display.update()
            time.sleep(2)
            main()
            pygame.display.update()
         elif P2SCORE >= 15:
-            windowSurface.blit(P2WIN, [120, 400])
+            windowSurface.blit(P2WIN, [60, 200])
             pygame.display.update()
             time.sleep(2)
             main()
@@ -326,13 +325,13 @@ def main(): #def for the whole game
         if not P1BULLET==[]:    #checks if bullet is currently on screen
             if not P1BULLET[0]>=WINDOWWIDTH:    #if has gone off side of screen
                 windowSurface.blit(BULLET, P1BULLET)    #display
-                P1BULLET[0]+=15      #adds 5 units to x value, moving the bullet in turn
+                P1BULLET[0]+=7.5      #adds 7.5 units to x value, moving the bullet in turn
                 if P1BULLET[0]>= playerRect2.left and P1BULLET[0]<= playerRect2.right:      #checks if within horizontal bounding box of other player
                     if P1BULLET[1]>= playerRect2.top and P1BULLET[1]<= playerRect2.bottom:  #checks if within vertical bounding box of other player
                         P1BULLET=[]     #removes bullet
                         P2BULLET=[]
                         pygame.mixer.Sound.play(hit)
-                        windowSurface.blit(BLINKER, [550, 100])
+                        windowSurface.blit(BLINKER, [275, 50])
                         pygame.display.update()
                         P1SCORE += 1
                         time.sleep(.5)
@@ -341,13 +340,13 @@ def main(): #def for the whole game
         if not P2BULLET==[]:    #repeat of other section, but with slight modifications to work for the 2nd player bullet
             if not P2BULLET[0]<=0:
                 windowSurface.blit(pygame.transform.flip(BULLET, 1, 0), P2BULLET)
-                P2BULLET[0]-=15
+                P2BULLET[0]-=7.5
                 if P2BULLET[0]>= playerRect.left and P2BULLET[0]<= playerRect.right:
                     if P2BULLET[1]>= playerRect.top and P2BULLET[1]<= playerRect.bottom:
                         P2BULLET=[]
                         P1BULLET=[]
                         pygame.mixer.Sound.play(hit)
-                        windowSurface.blit(BLINKER, [0, 100])
+                        windowSurface.blit(BLINKER, [0, 50])
                         pygame.display.update()
                         P2SCORE += 1
                         time.sleep(.5)
