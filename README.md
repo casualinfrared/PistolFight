@@ -1,6 +1,5 @@
-# PistolFight (small branch)
+# PistolFight
 A game I made in 2019 for a unit at Bournemouth and Poole college.
-This is the original version, featuring a smaller game window for smaller screens.
 
 # Prerequisites
 Python 3 and Pygame.
