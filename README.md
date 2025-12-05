@@ -1,15 +1,26 @@
 # PistolFight
+
 A game I made in 2019 for a unit at Bournemouth and Poole college.
 
 # Prerequisites
+
 Python 3 and Pygame.
 
-To install pygame: open a console window and type in: 'python3 -m pip install pygame'
+## Installing Pygame
+
+### Windows
+
+To install pygame: open a console window and type in: <code>python3 -m pip install pygame</code>
+
+### Linux
+
+Preferably, install pygame with your distribution's package manager. On Arch Linux that would be <code>sudo pacman -S python-pygame</code>
 
 # Controls
+
 W A S D = Move Player 1
 
-Left CTRL = Player 1 Shoot
+Left CTRL = Player 1 Shoots
 
 Arrow keys = Move Player 2
 
